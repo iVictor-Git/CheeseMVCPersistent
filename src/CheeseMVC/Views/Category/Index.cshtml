@@ -8,10 +8,12 @@
     <ul>
         @foreach (var category in Model)
         {
-            <li>@category</li>
+            <li>@category.Name</li>
         }
     </ul>
 }
 else {
     <p>We don't have any categories yet</p>
 }
+
+<a asp-controller="Category" asp-action="Add">Add Category</a>
