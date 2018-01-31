@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = Model.Menu.Name;
 }
 @using CheeseMVC.Models
@@ -13,8 +13,9 @@
             <li>@item.Cheese.Name</li>
         }
     </ul>
-    <a asp-controller="Menu" asp-action="AddItem" asp-route-id=@Model.Menu.ID></a>
 }
-else {
+else
+{
     <p>No items in this @Model.Menu.Name</p>
 }
+<a asp-controller="Menu" asp-action="AddItem" asp-route-id=@Model.Menu.ID>Add Item</a>
