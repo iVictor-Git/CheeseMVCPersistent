@@ -1,0 +1,16 @@
+﻿@{ 
+    ViewBag.Title = Model.Menu.Name;
+}
+@using CheeseMVC.Models
+@model CheeseMVC.ViewModels.ViewMenuViewModel
+
+
+@if (Model.Items.Count() > 0)
+{
+    <ul>
+        @foreach (CheeseMenu item in Model.Items)
+        {
+            <li>@item.Cheese.Name</li>
+        }
+    </ul>
+}
