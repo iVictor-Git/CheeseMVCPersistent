@@ -13,4 +13,8 @@
             <li>@item.Cheese.Name</li>
         }
     </ul>
+    <a asp-controller="Menu" asp-action="AddItem" asp-route-id=@Model.Menu.ID></a>
+}
+else {
+    <p>No items in this @Model.Menu.Name</p>
 }
