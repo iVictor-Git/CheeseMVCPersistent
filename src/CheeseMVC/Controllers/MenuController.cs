@@ -74,8 +74,7 @@ namespace CheeseMVC.Controllers
             Menu menu = context.Menus.Single(m => m.ID == id);
             IList<Cheese> cheeses = context
                 .Cheeses
-                .Include(c => c.Name)
-                .Where(c => c.ID == id)
+                .Where(cheese => cheese.ID == id)
                 .ToList();
 
             AddMenuItemViewModel addMenuItemViewModel = new AddMenuItemViewModel(menu, cheeses);
