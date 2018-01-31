@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CheeseMVC.Data;
 using CheeseMVC.Models;
+using CheeseMVC.Views.Menu;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -28,7 +29,8 @@ namespace CheeseMVC.Controllers
 
         public IActionResult Add()
         {
-            return View();
+            AddMenuViewModel addMenuViewModel = new AddMenuViewModel();
+            return View(addMenuViewModel);
         }
     }
 }
