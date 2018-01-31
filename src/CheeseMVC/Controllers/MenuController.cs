@@ -72,7 +72,11 @@ namespace CheeseMVC.Controllers
         public IActionResult AddItem(int id)
         {
             Menu menu = context.Menus.Single(m => m.ID == id);
-            return View();
+            IList<Cheese> cheeses = context.Cheeses.Include(c => c.Name).ToList();
+
+            AddMenuItemViewModel addMenuItemViewModel = new AddMenuItemViewModel(menu, cheeses);
+
+            return View(addMenuItemViewModel);
         }
     }
 }
