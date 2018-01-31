@@ -62,16 +62,17 @@ namespace CheeseMVC.Controllers
 
             ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel()
             {
-                Menu = menu
+                Menu = menu,
+                Items = items
             };
-
-            foreach (CheeseMenu item in items)
-            {
-                viewMenuViewModel.Items.Add(item);
-            }
             
             return View(viewMenuViewModel);
         }
 
+        public IActionResult AddItem(int id)
+        {
+            Menu menu = context.Menus.Single(m => m.ID == id);
+            return View();
+        }
     }
 }
