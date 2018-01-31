@@ -1,0 +1,10 @@
+﻿@using CheeseMVC.Models
+@model IList<Menu>
+
+
+<ul>
+    @foreach (Menu menu in Model)
+    {
+        <li>@menu.Name</li>
+    }
+</ul>
