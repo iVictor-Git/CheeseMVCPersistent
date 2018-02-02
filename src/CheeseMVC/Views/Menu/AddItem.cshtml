@@ -4,14 +4,14 @@
 }
 
 
-<form class="form-control" asp-controller="Menu" asp-action="AddItem">
+<form class="form-control" asp-controller="Menu" asp-action="AddItem" method="post">
     <div class="form-group">
-        <label asp-for="Menu.Name"></label>
-        <select asp-for="MenuID" asp-items="Model.Cheeses"></select>
-        <input type="hidden" name="MenuID" value="@Model.Menu.ID" />
+        <label asp-for="CheeseID"></label>
+        <select asp-for="CheeseID" asp-items="Model.Cheeses"></select>
+        <span asp-validation-for="CheeseID"></span>
     </div>
-    
-    <div class="form-group">
-        <input type="submit" value="Add item" />
-    </div>
+
+    <input type="hidden" name="MenuID" value="@Model.Menu.ID" />
+    <input type="submit" value="Add item" />
+
 </form>

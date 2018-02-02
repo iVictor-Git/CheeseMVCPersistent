@@ -5,6 +5,7 @@
 @model CheeseMVC.ViewModels.ViewMenuViewModel
 
 
+<h2>@ViewBag.Title</h2>
 @if (Model.Items.Count() > 0)
 {
     <ul>
@@ -16,6 +17,6 @@
 }
 else
 {
-    <p>No items in this @Model.Menu.Name</p>
+    <p>No items in this menu</p>
 }
 <a asp-controller="Menu" asp-action="AddItem" asp-route-id=@Model.Menu.ID>Add Item</a>
