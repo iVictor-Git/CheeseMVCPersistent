@@ -57,9 +57,7 @@ namespace CheeseMVC.Controllers
 
         public IActionResult Remove()
         {
-            ViewBag.title = "Remove Cheeses";
-            ViewBag.cheeses = context.Cheeses.ToList();
-            return View();
+            return View(context.Cheeses.ToList());
         }
 
         [HttpPost]
@@ -74,6 +72,29 @@ namespace CheeseMVC.Controllers
             context.SaveChanges();
 
             return Redirect("/");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            EditCheeseViewModel editCheeseViewModel = new EditCheeseViewModel(id, context.Categories.ToList());
+            return View(editCheeseViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditCheeseViewModel editCheeseViewModel)
+        {
+            if(ModelState.IsValid)
+            {
+                Cheese existingCheese = context.Cheeses.Single(c => c.ID == editCheeseViewModel.ID);
+                existingCheese.Name = editCheeseViewModel.Name;
+                existingCheese.Description = editCheeseViewModel.Description;
+                existingCheese.CategoryID = editCheeseViewModel.CategoryID;
+
+                context.SaveChanges();
+                return Redirect("/Cheese/Index");
+            }
+
+            return View(editCheeseViewModel);
         }
     }
 }
